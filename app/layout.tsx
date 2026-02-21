@@ -1,22 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "shadcn/ui Component Documentation",
-  description: "A complete collection of shadcn/ui components with examples and documentation",
+  title: "YaDOM - ยาดมสมุนไพร สดชื่น หายใจสะดวก",
+  description: "ผลิตภัณฑ์ยาดมสมุนไพรคุณภาพสูง ที่คนไทยไว้วางใจ ผสมผสานสมุนไพรไทยแท้ 8 ชนิด",
 };
 
 export default function RootLayout({
@@ -25,20 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange={false}
-          themes={['light', 'dark', 'primary', 'system']}
-        >
-          {children}
-          <Toaster />
-        </ThemeProvider>
+    <html lang="th">
+      <body className={`${inter.variable} font-sans antialiased`}>
+        {children}
       </body>
     </html>
   );
